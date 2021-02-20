@@ -1,0 +1,31 @@
+input {
+    border: 0px;
+}
+
+.main-form {
+    width: 70%;
+    margin: auto;
+}
+
+.main-table {
+    width: 100%;
+    margin: auto;
+}
+
+button {
+    margin-top: 20px;
+    margin-left: 25%;
+    width: 50px;
+}
+
+.greeting-text {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.matrix-text {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}

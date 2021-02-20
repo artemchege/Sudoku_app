@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="container w-60" style="width:50%;">
+
+    <p class="matrix-text">This is matrix that you submitted:</p>
+
+    <table class="table table-bordered w-60 main-table">
+        <tbody>
+            {% for line in matrix_before %}
+                <tr>
+
+                    {% for num in line %}
+                        <td>{{ num }}</td>
+                    {% endfor %}
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p class="matrix-text">This is solved matrix that represents the result of your sudoku puzzle:</p>
+
+    <table class="table table-bordered w-60 main-table" style="margin-bottom: 50px;">
+        <tbody>
+            {% for line in matrix_after %}
+                <tr>
+
+                    {% for num in line %}
+                        <td>{{ num }}</td>
+                    {% endfor %}
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

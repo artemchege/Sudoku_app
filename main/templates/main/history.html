@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="container w-70">
+
+    {% if history %}
+        <p class="matrix-text">
+            Here you can see your previous submitted sudoku matrix, note that you have not done any registration,
+            our server just remember your ip and browser, so if check this page from your iphone, you`ll see another
+            results.
+        </p>
+        <ul>
+            {% for item in history %}
+                <li><a href="{% url 'main:result' item.id %}">Matrix from {{ item.date }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You do not have any submitted matrix</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

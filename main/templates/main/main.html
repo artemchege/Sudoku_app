@@ -1,0 +1,37 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{error}}
+        </div>
+    {% endif %}
+
+    <div class="container w-70">
+
+        <p class="greeting-text">
+            All you have to do is to fill the matrix below with your numbers, if cell is empty - please leave 0.
+            Also remember that your matrix must not contain one number in line, in column and in each 3x3 sector,
+            for more information read sudoku rules.
+        </p>
+
+        <form class="main-form" action="" method="post">
+            {% csrf_token %}
+            <table class="table table-bordered w-70 main-table">
+                {% for i in '111111111' %}
+
+                    <tr>
+                        {% for j in '111111111' %}
+                            <td> <input style="width:20px" type="text" name="{{ forloop.counter }}" id="{{ forloop.counter }}" value="0"> </td>
+                        {% endfor %}
+                    </tr>
+
+                {% endfor %}
+            </table>
+            <button type="submit" class="btn btn-light w-50">Send</button>
+        </form>
+
+    </div>
+
+{% endblock %}
