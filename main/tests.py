@@ -1,9 +1,6 @@
-# import datetime
 from django.test import TestCase
-# from django.utils import timezone
-# from django.urls import reverse
 from http import HTTPStatus
-from .models import Matrix
+# from .models import Matrix
 
 
 class SudokuMainTests(TestCase):

@@ -1,25 +1,3 @@
-
-# test2 = [[3, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [5, 2, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 8, 7, 0, 0, 0, 0, 3, 1],
-#           [0, 0, 3, 0, 1, 0, 0, 8, 0],
-#           [9, 0, 0, 8, 6, 3, 0, 0, 5],
-#           [0, 5, 0, 0, 9, 0, 6, 0, 0],
-#           [1, 3, 0, 0, 0, 0, 2, 5, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 7, 4],
-#           [0, 0, 5, 2, 0, 6, 3, 0, 0]]
-#
-# test3 = [[1, 2, 3, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0],
-#           [0, 0, 0, 0, 0, 0, 0, 0, 0]]
-
-
 def solve_matrix(array):
     """
     Takes matrix as argument, returns solved matrix if solved, False if not.
@@ -64,7 +42,6 @@ def solve_matrix(array):
             for num in line:
                 sum += num
             if sum != 45:
-                # print("Сумма строк не равна, координаты:", line)
                 return False
 
         for i in range(0, len(matrix)):
@@ -72,7 +49,6 @@ def solve_matrix(array):
             for j in range(0, len(matrix)):
                 sum += matrix[i][j]
             if sum != 45:
-                # print("Сумма столбцов не равна, координаты:", i, j)
                 return False
 
         return True
@@ -102,8 +78,6 @@ def solve_matrix(array):
         return False
 
 
-# print(solve_matrix(test2))
-
 def check_if_valid(matrix, line, column, num):
     """
     This function checks if there is no issue with current matrix and current number in matrix.
@@ -113,7 +87,7 @@ def check_if_valid(matrix, line, column, num):
     :param num: int
     :return: True if num is fitting, else False.
     """
-    # print(matrix, line, column, num)
+
     # horizontal check
     if num in matrix[line]:
         return False
@@ -147,16 +121,13 @@ def validate_form(matrix):
             try:
                 int(elem)
             except Exception as e:
-                # print('int  error')
                 return False
             if int(elem) > 9 or int(elem) < 0:
-                # print('<0 and >9 error')
                 return False
 
     # check if matrix is 9x9 size
     for col in matrix:
         if len(col) != 9:
-            # print('size error')
             return False
 
     return True
@@ -177,7 +148,6 @@ def check_sudoku_rules(matrix):
                 # make the current num in matrix 0 so we can use check_if_valid() without rewritings
                 matrix[line][column] = 0
                 if not check_if_valid(matrix, line, column, num):
-                    # print('sudoku rules error')
                     return False
                 # turn the num back
                 matrix[line][column] = num

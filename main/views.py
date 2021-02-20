@@ -1,10 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Matrix
-# from django.template import loader
 from django.urls import reverse
-from django.views import generic, View
-# from django.utils import timezone
+from django.views import View
 from .utils import validate_form, turn_matrix, return_session, solve_matrix, check_sudoku_rules
 import copy
 
@@ -45,11 +43,9 @@ class SudokuMain(View):
             Matrix.objects.create(array=matrix_t, user=session_key, if_solved=False)
             return render(request, 'main/main.html', {'error': 'matrix does not have solutions'})
 
-        return HttpResponse('ok')
-
     def get(self, request):
         print('get')
-        context = {'width': 9, 'height': 9}
+        context = {}
         return render(request, 'main/main.html', context)
 
 
@@ -79,7 +75,6 @@ class SudokuHistory(View):
         """
 
         user = return_session(request)
-
         history = Matrix.objects.filter(user=user)
 
         context = {'history': history}
